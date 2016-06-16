@@ -13,6 +13,9 @@
 				<p:column headerText="Last Name">
 					<h:outputText value="#{client.lastName}" />
 				</p:column>
+				<p:column headerText="Total trips">
+					<h:outputText value="#{client.trips.size()}" />
+				</p:column>
 				<p:column headerText="Action">
 					<p:commandButton value="Delete"
 						action="#{clientsListPage.deleteSelected(client)}" update="@form">
