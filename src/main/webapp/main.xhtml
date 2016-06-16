@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="content">
+		<h:form id="tableActionForm">
+			<p:dataTable value="#{clientsListPage.clientList}" var="client">
+				<p:column headerText="First Name">
+					<h:outputText value="#{client.firstName}" />
+				</p:column>
+				<p:column headerText="Last Name">
+					<h:outputText value="#{client.lastName}" />
+				</p:column>
+				<p:column headerText="Action">
+					<p:commandButton value="Delete"
+						action="#{clientsListPage.deleteSelected(client)}" update="@form">
+						<p:confirm header="Confirmation" message="Are you sure?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Yes" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="No" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+		<h:form id="actionForm">
+			<p:commandButton id="addNewCustomerBtn" action="addNewCustomer"
+				value="Add New Customer" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="title">
+ 		Customers
+ 	</ui:define>
+
+</ui:composition>

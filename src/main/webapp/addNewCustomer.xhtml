@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="content">
+		<h:form id="newCustomerForm">
+			<h3>Add New Client</h3>
+			<h:panelGrid columns="3">
+				<p:outputLabel for="clientName" value="Name:" />
+				<p:inputText id="clientName"
+					value="#{clientModel.selectedClient.firstName}" required="true" />
+				<p:message for="clientName" />
+
+				<p:outputLabel for="clientSurname" value="Surname:" />
+				<p:inputText id="clientSurname"
+					value="#{clientModel.selectedClient.lastName}" required="true" />
+				<p:message for="clientSurname" />
+
+				<p:outputLabel for="clientPhoneNo" value="Phone:" />
+				<p:inputText id="clientPhoneNo"
+					value="#{clientModel.selectedClient.phoneNumber}" required="true" />
+				<p:message for="clientPhoneNo" />
+			</h:panelGrid>
+			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="title">
+	 	Add new customer
+	</ui:define>
+
+</ui:composition>
