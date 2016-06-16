@@ -50,4 +50,9 @@ public class ClientsListPageBean {
 		}
 		return "main";
 	}
+	
+	public String showMoreInfoPage(Client client) {
+		clientModel.setSelectedClient(client);
+		return "viewCustomer";
+	}
 }

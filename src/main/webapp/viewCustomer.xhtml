@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="content">
+		<h:form id="tableActionForm">
+			
+			<h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+	            <!-- <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
+	                <f:setPropertyActionListener value="#{car}" target="#{dataListView.selectedCar}" />
+	                <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" /> 
+	            </p:commandLink> -->
+	 
+	            <p:outputPanel>
+	                <h:panelGrid columns="2" cellpadding="5">
+	                    <h:outputText value="Name:" />
+	                    <h:outputText value="#{clientModel.selectedClient.firstName}" style="font-weight: bold"/>
+	 
+	                    <h:outputText value="Surname:" />
+	                    <h:outputText value="#{clientModel.selectedClient.lastName}" style="font-weight: bold"/>
+	 
+	                    <h:outputText value="Phone:" />
+	                    <h:outputText value="#{clientModel.selectedClient.phoneNumber}" style="font-weight: bold"/>
+	                </h:panelGrid>
+	            </p:outputPanel>
+	        </h:panelGrid>
+
+		</h:form>
+
+		<!-- <h:form id="actionForm">
+			<p:commandButton id="addNewCustomerBtn" action="addNewCustomer"
+				value="Add New Customer" />
+		</h:form> -->
+	</ui:define>
+
+	<ui:define name="title">
+ 		Customer's info
+ 	</ui:define>
+
+</ui:composition>
