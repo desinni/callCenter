@@ -18,6 +18,10 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 	
+	 <bean id="tripRepo" class="lt.vtvpmc.exam.entities.repositories.jpa.TripRepositoryJPA" scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+	
 	<bean id="clientsListPage" class="lt.vtvpmc.exam.ui.controllers.ClientsListPageBean" scope="session" >
 		<property name="clientRepo" ref="clientRepo" />
 		<property name="clientModel" ref="clientModel" />
