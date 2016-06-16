@@ -55,4 +55,9 @@ public class ClientsListPageBean {
 		clientModel.setSelectedClient(client);
 		return "viewCustomer";
 	}
+	
+	public String showNewCustomerPage() {
+		clientModel.setSelectedClient(new Client());
+		return "addNewCustomer";
+	}
 }

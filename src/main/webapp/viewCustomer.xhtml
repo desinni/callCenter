@@ -6,13 +6,8 @@
 
 	<ui:define name="content">
 		<h:form id="tableActionForm">
+			<p:graphicImage class="user-icon" library="images" name="icon-user.png" />
 			
-			<h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
-	            <!-- <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()">
-	                <f:setPropertyActionListener value="#{car}" target="#{dataListView.selectedCar}" />
-	                <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" /> 
-	            </p:commandLink> -->
-	 
 	            <p:outputPanel>
 	                <h:panelGrid columns="2" cellpadding="5">
 	                    <h:outputText value="Name:" />
@@ -25,7 +20,7 @@
 	                    <h:outputText value="#{clientModel.selectedClient.phoneNumber}" style="font-weight: bold"/>
 	                </h:panelGrid>
 	            </p:outputPanel>
-	        </h:panelGrid>
+
 
 		</h:form>
 
