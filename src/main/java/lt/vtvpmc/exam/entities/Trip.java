@@ -27,7 +27,7 @@ public class Trip implements Serializable {
 	private Date endDate;
 	private String destination;
 	private double price;
-	private int rating;
+	private String rating;
 
 	@JoinColumn(name = "client_id")
 	@ManyToOne(optional = true, cascade = { CascadeType.ALL })
@@ -36,7 +36,7 @@ public class Trip implements Serializable {
 	public Trip() {
 	}
 
-	public Trip(Date startDate, Date endDate, String destination, double price, int rating, Client client) {
+	public Trip(Date startDate, Date endDate, String destination, double price, String rating, Client client) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -86,11 +86,11 @@ public class Trip implements Serializable {
 		this.price = price;
 	}
 
-	public int getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 

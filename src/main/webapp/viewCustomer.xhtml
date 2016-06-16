@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
 	<ui:define name="content">
-		<h:form id="tableActionForm">
+		<h:form>
 			<p:graphicImage class="user-icon" library="images" name="icon-user.png" />
 			
 	            <p:outputPanel>
@@ -20,13 +20,48 @@
 	                    <h:outputText value="#{clientModel.selectedClient.phoneNumber}" style="font-weight: bold"/>
 	                </h:panelGrid>
 	            </p:outputPanel>
-
-
 		</h:form>
 
-		<!-- <h:form id="actionForm">
-			<p:commandButton id="addNewCustomerBtn" action="addNewCustomer"
-				value="Add New Customer" />
+		<h:form>
+			<p:dataTable value="#{clientModel.selectedClient.trips}" var="trip">
+				<p:column headerText="Destination">
+					<h:outputText value="#{trip.destination}" />
+				</p:column>
+				
+				<p:column headerText="Start">
+					<h:outputText value="#{trip.startDate}" />
+				</p:column>
+				
+				<p:column headerText="End">
+					<h:outputText value="#{trip.endDate}" />
+				</p:column>
+				
+				<p:column headerText="Price">
+					<h:outputText value="#{trip.price}" />
+				</p:column>
+				
+				<p:column headerText="Rating">
+					<h:outputText value="#{trip.rating}" /> / 5
+				</p:column>
+				
+				<!-- <p:column headerText="Action">
+					<p:commandButton value="Delete"
+						action="#{clientsListPage.deleteSelected(client)}" update="@form">
+						<p:confirm header="Confirmation" message="Are you sure?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Yes" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="No" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</p:column> -->
+			</p:dataTable>
+		</h:form>
+		<!-- <h:form>
+			<p:commandButton id="addNewTripBtn" action="#{clientsListPage.showNewTripPage()}"
+				value="Add New Trip" />
 		</h:form> -->
 	</ui:define>
 

@@ -30,5 +30,7 @@
 	<bean id="clientModel" class="lt.vtvpmc.exam.ui.model.ClientModel" scope="session">
 <!-- 		<property name="selectedClient" ref="selectedClient" /> -->
 	</bean>
+	
+	<bean id="tripModel" class="lt.vtvpmc.exam.ui.model.TripModel" scope="session" />
     
 </beans>

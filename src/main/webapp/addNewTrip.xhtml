@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="content">
+		<h:form id="newTripForm">
+			<h3>Add New Trip</h3>
+			<h:panelGrid columns="3">
+				<p:outputLabel for="tripDestination" value="Destination:" />
+				<p:inputText id="tripDestination"
+					value="#{tripModel.selectedTrip.destination}" required="true" />
+				<p:message for="tripDestination" />
+
+				<p:outputLabel for="tripStart" value="Start:" />
+				<p:calendar id="tripStart"
+						value="#{tripModel.selectedTrip.startDate}"
+						pattern="yyyy-MM-dd" mask="true" required="true" />
+				<p:message for="tripStart" />
+
+				<p:outputLabel for="tripEnd" value="End:" />
+				<p:calendar id="tripEnd"
+						value="#{tripModel.selectedTrip.endDate}"
+						pattern="yyyy-MM-dd" mask="true" required="true" />
+				<p:message for="tripEnd" />
+				
+				<p:outputLabel for="tripPrice" value="Price:" />
+				<p:outputPanel>
+					<p:spinner id="tripPrice" value="#{tripModel.selectedTrip.price}" prefix="€"
+						min="0" stepFactor="10.0">
+						<!-- <p:ajax update="fullItemPrice" process="@this" /> -->
+					</p:spinner>
+<!-- 					<h:outputText id="fullItemPrice" value="#{invoicesListPage.priceTooBigNotification()}"
+							style="padding: 3px 30px;" styleClass="#{invoicesListPage.checkPriceColor()}"/> -->
+				</p:outputPanel>
+				
+				<p:outputLabel for="tripRating" value="Rating:" />
+				 <p:selectOneMenu id="tripRating" value="#{tripModel.selectedTrip.rating}" style="width:80px">
+		            <f:selectItem itemLabel="1" itemValue="1" />
+		            <f:selectItem itemLabel="2" itemValue="2" />
+		            <f:selectItem itemLabel="3" itemValue="3" />
+		            <f:selectItem itemLabel="4" itemValue="4" />
+		            <f:selectItem itemLabel="5" itemValue="5" />
+		        </p:selectOneMenu>
+				<p:message for="tripRating" />
+				
+			</h:panelGrid>
+			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="title">
+	 	Add new trip
+	</ui:define>
+
+</ui:composition>
