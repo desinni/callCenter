@@ -20,8 +20,11 @@
 
 				<p:outputLabel for="clientPhoneNo" value="Phone:" />
 				<p:inputText id="clientPhoneNo"
-					value="#{clientModel.selectedClient.phoneNumber}" required="true" />
+					value="#{clientModel.selectedClient.phoneNumber}" required="true">
+					 <!-- <p:keyFilter regEx="/[\d\-]/"/> -->
+				</p:inputText>	
 				<p:message for="clientPhoneNo" />
+				
 			</h:panelGrid>
 			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
 		</h:form>

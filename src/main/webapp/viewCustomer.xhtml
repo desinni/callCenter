@@ -37,7 +37,7 @@
 				</p:column>
 				
 				<p:column headerText="Price">
-					<h:outputText value="#{trip.price}" />
+					€<h:outputText value="#{trip.price}" />
 				</p:column>
 				
 				<p:column headerText="Rating">
@@ -59,10 +59,10 @@
 				</p:column> -->
 			</p:dataTable>
 		</h:form>
-		<!-- <h:form>
+		<h:form>
 			<p:commandButton id="addNewTripBtn" action="#{clientsListPage.showNewTripPage()}"
 				value="Add New Trip" />
-		</h:form> -->
+		</h:form>
 	</ui:define>
 
 	<ui:define name="title">

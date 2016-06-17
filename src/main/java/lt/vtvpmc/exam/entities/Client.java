@@ -1,6 +1,7 @@
 package lt.vtvpmc.exam.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -75,4 +76,10 @@ public class Client implements Serializable {
 		this.trips = trips;
 	}
 
+	public void addTrip(Trip trip) {
+		if (getTrips() == null)
+			setTrips(new ArrayList<Trip>());
+		if (!getTrips().contains(trip))
+			getTrips().add(trip);
+	}
 }

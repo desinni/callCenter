@@ -28,12 +28,9 @@
 				<p:outputLabel for="tripPrice" value="Price:" />
 				<p:outputPanel>
 					<p:spinner id="tripPrice" value="#{tripModel.selectedTrip.price}" prefix="€"
-						min="0" stepFactor="10.0">
-						<!-- <p:ajax update="fullItemPrice" process="@this" /> -->
-					</p:spinner>
-<!-- 					<h:outputText id="fullItemPrice" value="#{invoicesListPage.priceTooBigNotification()}"
-							style="padding: 3px 30px;" styleClass="#{invoicesListPage.checkPriceColor()}"/> -->
+						min="0" stepFactor="10.0" />
 				</p:outputPanel>
+				<p:message for="tripPrice" />
 				
 				<p:outputLabel for="tripRating" value="Rating:" />
 				 <p:selectOneMenu id="tripRating" value="#{tripModel.selectedTrip.rating}" style="width:80px">
@@ -46,7 +43,7 @@
 				<p:message for="tripRating" />
 				
 			</h:panelGrid>
-			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
+			<p:commandButton action="#{addNewTripPage.addNew()}" value="Add" />
 		</h:form>
 	</ui:define>
 

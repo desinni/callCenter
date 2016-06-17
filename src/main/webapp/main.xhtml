@@ -39,6 +39,22 @@
 			<p:commandButton id="addNewCustomerBtn" action="#{clientsListPage.showNewCustomerPage()}"
 				value="Add New Customer" />
 		</h:form>
+		
+		<h:form id="topThreeFormTable">
+			<p:dataTable value="#{clientsListPage.clientList}" var="client">
+				<p:column headerText="First Name">
+					<h:outputText value="#{client.firstName}" />
+				</p:column>
+				<p:column headerText="Last Name">
+					<h:outputText value="#{client.lastName}" />
+				</p:column>
+				<p:column headerText="Total trips">
+					<h:outputText value="#{client.trips.size()}" />
+				</p:column>
+				
+			</p:dataTable>
+		</h:form>
+		
 	</ui:define>
 
 	<ui:define name="title">
