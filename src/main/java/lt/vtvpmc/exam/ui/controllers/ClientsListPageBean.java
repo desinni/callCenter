@@ -56,7 +56,7 @@ public class ClientsListPageBean {
 		clientModel.setSelectedClient(new Client());
 		return "main";
 	}
-
+	
 	public String deleteSelected(Client client) {
 		if (client == null) {
 			FacesContext.getCurrentInstance().addMessage(null,

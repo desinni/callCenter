@@ -72,5 +72,18 @@ public class ClientRepositoryJPA implements ClientRepository {
 			entityManager.close();
 		}
 	}
+	
+	public Client findByLastName(String lastName) {
+		Client client = null;
+		EntityManager entityManager = getEntityManager();
+		try {
+			entityManager.getTransaction().begin();
+			client = entityManager.find(Client.class, lastName);
+		} finally {
+			entityManager.close();
+			log.debug(">>>>> Client in findByNumber {}", client);
+		}
+		return client;
+	}
 
 }
