@@ -102,4 +102,9 @@ public class Trip implements Serializable {
 		this.client = client;
 	}
 
+	@Override
+	public String toString() {
+		return "Trip destination: " + destination + ", start date: " + startDate;
+	}
+	
 }

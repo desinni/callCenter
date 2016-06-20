@@ -82,4 +82,9 @@ public class Client implements Serializable {
 		if (!getTrips().contains(trip))
 			getTrips().add(trip);
 	}
+	
+	@Override
+	public String toString() {
+		return "Client: " + firstName + " " + lastName;
+	}
 }

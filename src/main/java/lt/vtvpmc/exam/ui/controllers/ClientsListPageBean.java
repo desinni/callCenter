@@ -5,6 +5,9 @@ import java.util.*;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import lt.vtvpmc.exam.entities.Client;
 import lt.vtvpmc.exam.entities.Trip;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
@@ -12,6 +15,8 @@ import lt.vtvpmc.exam.ui.model.ClientModel;
 import lt.vtvpmc.exam.ui.model.TripModel;
 
 public class ClientsListPageBean {
+
+	static final Logger log = LoggerFactory.getLogger(ClientsListPageBean.class);
 
 	private ClientModel clientModel;
 	private ClientRepository clientRepo;
@@ -46,8 +51,8 @@ public class ClientsListPageBean {
 	}
 
 	public String saveNew() {
-		Client train = clientModel.getSelectedClient();
-		clientRepo.save(train);
+		Client client = clientModel.getSelectedClient();
+		clientRepo.save(client);
 		clientModel.setSelectedClient(new Client());
 		return "main";
 	}
@@ -63,6 +68,7 @@ public class ClientsListPageBean {
 	}
 	
 	public String showMoreInfoPage(Client client) {
+		log.debug(">>>>> Will show currently selected client in showMoreInfoPage: {}", client);
 		clientModel.setSelectedClient(client);
 		return "viewCustomer";
 	}
@@ -76,13 +82,4 @@ public class ClientsListPageBean {
 		tripModel.setSelectedTrip(new Trip());
 		return "addNewTrip";
 	}
-	
-//	public List<Client> topThreeClients() {
-//		List<Client> topList = new ArrayList<Client>();
-//		List<Client> allClients = this.getClientList();
-//		for (int i = 0; i < allClients.size(); i++) {
-//			if (allClients.get(i) )
-//		}
-//		return topList;
-//	}
 }

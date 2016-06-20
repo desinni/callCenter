@@ -9,10 +9,16 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import lt.vtvpmc.exam.entities.Client;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
+import lt.vtvpmc.exam.ui.controllers.ClientsListPageBean;
 
 public class ClientRepositoryJPA implements ClientRepository {
+
+	static final Logger log = LoggerFactory.getLogger(ClientsListPageBean.class);
 
 	private EntityManagerFactory entityManagerFactory;
 
@@ -55,6 +61,7 @@ public class ClientRepositoryJPA implements ClientRepository {
 
 	@Override
 	public void delete(Client client) {
+		log.debug(">>>>> Will delete client in delete: {}", client);
 		EntityManager entityManager = getEntityManager();
 		try {
 			entityManager.getTransaction().begin();
