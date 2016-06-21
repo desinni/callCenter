@@ -12,6 +12,9 @@
                 <h:outputText value="#{clientsListPage.countAverageEvaluation()}" class="info" />
 			</h:panelGrid>
 		</h:form>
+		
+		<p:chart type="bar" model="#{clientsListPage.barModel}"
+				style="height:300px" />
 	</ui:define>
 
 	<ui:define name="title">

@@ -8,16 +8,12 @@
 		<h:form id="newTripForm">
 			<div class="header">Add New Survey</div>
 			<h:panelGrid columns="3">
-			
-				<h:outputText value="Date: " />
-	            <h:outputText id="surveyDate" value="#{surveyModel.selectedSurvey.date}" class="info" />
-	            <p:message for="surveyDate" />
-			<!-- 
-				<h:outputLabel for="surveyDate" value="Date:" />
-				<h:outputText value="#{currentDate}">
-					<f:convertDateTime pattern="yyyy-MM-dd" type="date" />
-				</h:outputText>
-				<p:message for="surveyDate" /> -->
+				
+				<p:outputLabel for="surveyDate" value="Date:" />
+				<p:calendar id="surveyDate"
+					value="#{surveyModel.selectedSurvey.date}" pattern="yyyy-MM-dd"
+					mask="true" />
+				<p:message for="surveyDate" />
 				
 				<p:outputLabel for="surveyEvaluation" value="Service evaluation:" />
 				<p:selectOneMenu id="surveyEvaluation" value="#{surveyModel.selectedSurvey.evaluation}" style="width:80px">

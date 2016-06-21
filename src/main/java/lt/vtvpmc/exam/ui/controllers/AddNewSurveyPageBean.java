@@ -1,5 +1,7 @@
 package lt.vtvpmc.exam.ui.controllers;
 
+import java.util.Calendar;
+
 import lt.vtvpmc.exam.entities.Client;
 import lt.vtvpmc.exam.entities.Survey;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
@@ -58,6 +60,7 @@ public class AddNewSurveyPageBean {
 	public String addNew() {
 		Client client = clientModel.getSelectedClient();
 		Survey newSurvey = surveyModel.getSelectedSurvey();
+		newSurvey.setDate(Calendar.getInstance().getTime());
 		newSurvey.setClient(client);
 		client.addSurvey(newSurvey);
 		clientRepo.save(client);

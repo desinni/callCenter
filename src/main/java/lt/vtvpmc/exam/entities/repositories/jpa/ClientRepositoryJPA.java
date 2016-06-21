@@ -72,5 +72,4 @@ public class ClientRepositoryJPA implements ClientRepository {
 			entityManager.close();
 		}
 	}
-
 }
