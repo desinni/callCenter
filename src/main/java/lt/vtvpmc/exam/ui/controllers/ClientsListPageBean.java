@@ -78,7 +78,7 @@ public class ClientsListPageBean {
 		return "addNewCustomer";
 	}
 
-	public String showNewTripPage() {
+	public String showNewSurveyPage() {
 		surveyModel.setSelectedSurvey(new Survey());
 		return "addNewSurvey";
 	}

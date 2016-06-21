@@ -47,11 +47,6 @@
 					value="#{clientModel.selectedClient.address}" required="false" />
 				<p:message for="clientAddress" />
 
-				<h:outputText value="Current date: " />
-				<h:outputText value="#{currentDate}">
-					<f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" type="date" />
-				</h:outputText>
-
 			</h:panelGrid>
 			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
 		</h:form>

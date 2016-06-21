@@ -9,39 +9,43 @@
 			<p:graphicImage class="user-icon" library="images" name="icon-user.png" />
 			
 	            <p:outputPanel>
-	                <h:panelGrid columns="2" cellpadding="5">
+	                <h:panelGrid columns="4" cellpadding="5">
 	                    <h:outputText value="Name:" />
 	                    <h:outputText value="#{clientModel.selectedClient.firstName}" style="font-weight: bold"/>
 	 
 	                    <h:outputText value="Surname:" />
 	                    <h:outputText value="#{clientModel.selectedClient.lastName}" style="font-weight: bold"/>
+	                    
+	                    <h:outputText value="Birthday:" />
+	                    <h:outputText value="#{clientModel.selectedClient.birthday}" style="font-weight: bold"/>
 	 
 	                    <h:outputText value="Phone:" />
 	                    <h:outputText value="#{clientModel.selectedClient.phoneNumber}" style="font-weight: bold"/>
+	                    
+	                    <h:outputText value="Service start: " />
+	                    <h:outputText value="#{clientModel.selectedClient.startDay}" style="font-weight: bold"/>
+	                    
+	                    <h:outputText value="City:" />
+	                    <h:outputText value="#{clientModel.selectedClient.city}" style="font-weight: bold"/>
+	                    
+	                    <h:outputText value="Address:" />
+	                    <h:outputText value="#{clientModel.selectedClient.address}" style="font-weight: bold"/>
 	                </h:panelGrid>
 	            </p:outputPanel>
 		</h:form>
 
 		<h:form>
-			<p:dataTable value="#{clientModel.selectedClient.trips}" var="trip">
-				<p:column headerText="Destination">
-					<h:outputText value="#{trip.destination}" />
+			<p:dataTable value="#{clientModel.selectedClient.surveys}" var="survey">
+				<p:column headerText="Date">
+					<h:outputText value="#{survey.date}" />
 				</p:column>
 				
-				<p:column headerText="Start">
-					<h:outputText value="#{trip.startDate}" />
+				<p:column headerText="Evaluation">
+					<h:outputText value="#{survey.evaluation}" /> / 10
 				</p:column>
 				
-				<p:column headerText="End">
-					<h:outputText value="#{trip.endDate}" />
-				</p:column>
-				
-				<p:column headerText="Price">
-					€<h:outputText value="#{trip.price}" />
-				</p:column>
-				
-				<p:column headerText="Rating">
-					<h:outputText value="#{trip.rating}" /> / 5
+				<p:column headerText="Recommendation">
+					<h:outputText value="#{survey.recommendation}" /> / 10
 				</p:column>
 				
 				<!-- <p:column headerText="Action">
@@ -60,13 +64,13 @@
 			</p:dataTable>
 		</h:form>
 		<h:form>
-			<p:commandButton id="addNewTripBtn" action="#{clientsListPage.showNewTripPage()}"
-				value="Add New Trip" />
+			<p:commandButton id="addNewSurveyBtn" action="#{clientsListPage.showNewSurveyPage()}"
+				value="Add New Survey" />
 		</h:form>
 	</ui:define>
 
 	<ui:define name="title">
- 		Customer's info
+ 		Client's info
  	</ui:define>
 
 </ui:composition>

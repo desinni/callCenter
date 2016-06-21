@@ -28,7 +28,7 @@
 		<property name="surveyModel" ref="surveyModel" />
 	</bean>
 	
-	<bean id="addNewTripPage" class="lt.vtvpmc.exam.ui.controllers.AddNewTripPageBean" scope="session" >
+	<bean id="addNewSurveyPage" class="lt.vtvpmc.exam.ui.controllers.AddNewSurveyPageBean" scope="session" >
 		<property name="clientRepo" ref="clientRepo" />
 		<property name="clientModel" ref="clientModel" />
 		<property name="surveyRepo" ref="surveyRepo" />

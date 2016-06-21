@@ -7,7 +7,7 @@ import lt.vtvpmc.exam.entities.repositories.SurveyRepository;
 import lt.vtvpmc.exam.ui.model.ClientModel;
 import lt.vtvpmc.exam.ui.model.SurveyModel;
 
-public class AddNewTripPageBean {
+public class AddNewSurveyPageBean {
 
 	private ClientRepository clientRepo;
 	private SurveyRepository surveyRepo;
