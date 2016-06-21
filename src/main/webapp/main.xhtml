@@ -13,8 +13,8 @@
 				<p:column headerText="Last Name">
 					<h:outputText value="#{client.lastName}" />
 				</p:column>
-				<p:column headerText="Total trips">
-					<h:outputText value="#{client.trips.size()}" />
+				<p:column headerText="Total surveys">
+					<h:outputText value="#{client.surveys.size()}" />
 				</p:column>
 				<p:column headerText="Action">
 					<p:commandButton value="Delete"
@@ -37,28 +37,13 @@
 
 		<h:form id="actionForm">
 			<p:commandButton id="addNewCustomerBtn" action="#{clientsListPage.showNewCustomerPage()}"
-				value="Add New Customer" />
+				value="Add New Client" />
 		</h:form>
-		
-		<!-- <h:form id="topThreeFormTable">
-			<p:dataTable value="#{clientsListPage.clientList}" var="client">
-				<p:column headerText="First Name">
-					<h:outputText value="#{client.firstName}" />
-				</p:column>
-				<p:column headerText="Last Name">
-					<h:outputText value="#{client.lastName}" />
-				</p:column>
-				<p:column headerText="Total trips">
-					<h:outputText value="#{client.trips.size()}" />
-				</p:column>
-				
-			</p:dataTable>
-		</h:form> -->
 		
 	</ui:define>
 
 	<ui:define name="title">
- 		Customers
+ 		Clients
  	</ui:define>
 
 </ui:composition>

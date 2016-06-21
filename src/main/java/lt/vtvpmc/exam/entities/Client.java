@@ -23,8 +23,7 @@ public class Client implements Serializable {
 
 	private String firstName;
 	private String lastName;
-	@Temporal(TemporalType.DATE)
-	private Date birthday;
+	private String birthday;
 	private String phoneNumber;
 	@Temporal(TemporalType.DATE)
 	private Date startDay;
@@ -37,7 +36,7 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public Client(String firstName, String lastName, Date birthday, String phoneNumber, Date startDay, String city,
+	public Client(String firstName, String lastName, String birthday, String phoneNumber, Date startDay, String city,
 			String address) {
 		super();
 		this.firstName = firstName;
@@ -73,11 +72,11 @@ public class Client implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 

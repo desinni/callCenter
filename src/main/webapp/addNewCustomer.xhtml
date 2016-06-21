@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
 	<ui:define name="content">
-		
+
 		<h:form id="newCustomerForm">
 			<h3>Add New Client</h3>
 			<h:panelGrid columns="3">
@@ -19,25 +19,46 @@
 					value="#{clientModel.selectedClient.lastName}" required="true" />
 				<p:message for="clientSurname" />
 
+				<p:outputLabel for="clientBirthday" value="Birthday:" />
+				<p:inputMask id="clientBirthday"
+					value="#{clientModel.selectedClient.birthday}" mask="9999-99-99"
+					required="true" />
+				<p:message for="clientBirthday" />
+
 				<p:outputLabel for="clientPhoneNo" value="Phone:" />
 				<p:inputText id="clientPhoneNo"
 					value="#{clientModel.selectedClient.phoneNumber}" required="true">
-					 <!-- <p:keyFilter regEx="/[\d\-]/"/> -->
-				</p:inputText>	
+				</p:inputText>
 				<p:message for="clientPhoneNo" />
-				
+
+				<p:outputLabel for="clientStartDay" value="Service start:" />
+				<p:calendar id="clientStartDay"
+					value="#{clientModel.selectedClient.startDay}" pattern="yyyy-MM-dd"
+					mask="true" required="false" />
+				<p:message for="clientStartDay" />
+
+				<p:outputLabel for="clientCity" value="City: " />
+				<p:inputText id="clientCity"
+					value="#{clientModel.selectedClient.city}" required="false" />
+				<p:message for="clientCity" />
+
+				<p:outputLabel for="clientAddress" value="Address: " />
+				<p:inputText id="clientAddress"
+					value="#{clientModel.selectedClient.address}" required="false" />
+				<p:message for="clientAddress" />
+
 				<h:outputText value="Current date: " />
-	            <h:outputText value="#{currentDate}">
-	            	<f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" type="date" />
-	            </h:outputText>	
-				
+				<h:outputText value="#{currentDate}">
+					<f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" type="date" />
+				</h:outputText>
+
 			</h:panelGrid>
-			<p:commandButton action="#{clientsListPage.saveNew}" value="Add"/>
+			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
 		</h:form>
 	</ui:define>
 
 	<ui:define name="title">
-	 	Add new customer
+	 	Add new client
 	</ui:define>
 
 </ui:composition>

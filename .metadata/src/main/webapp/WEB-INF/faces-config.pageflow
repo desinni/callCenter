@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14659972514472" configfile="/shit/src/main/webapp/WEB-INF/faces-config.xml">
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14659972514472" configfile="/callCenterApp/src/main/webapp/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="invoices.xhtml" id="pf14659975311573" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf14659975311574 pf14659975311575" inlinks="pf14659975311574 pf14659975311576" path="/main.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="*" id="pf14659975311577" outlinks="pf14659975311578" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="main.xhtml" id="pf14659975311579" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14659975311578" path="main.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="addNewCustomer.xhtml" id="pf146599753115710" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14659975311576" inlinks="pf14659975311575" path="/addNewCustomer.xhtml"/>
-  <links id="pf14659975311574" target="pf14659975311573" source="pf14659975311573" outcome="list-customers" redirect="true"/>
-  <links id="pf14659975311578" target="pf14659975311579" source="pf14659975311577" outcome="list-customers" redirect="true"/>
-  <links id="pf14659975311575" target="pf146599753115710" source="pf14659975311573" outcome="show-add-customer"/>
-  <links id="pf14659975311576" target="pf14659975311573" source="pf146599753115710" outcome="list-customers" redirect="true"/>
+  <links id="pf14659975311574" target="pf14659975311573" source="pf14659975311573"/>
+  <links id="pf14659975311578" target="pf14659975311579" source="pf14659975311577"/>
+  <links id="pf14659975311575" target="pf146599753115710" source="pf14659975311573"/>
+  <links id="pf14659975311576" target="pf14659975311573" source="pf146599753115710"/>
 </pageflow:Pageflow>
