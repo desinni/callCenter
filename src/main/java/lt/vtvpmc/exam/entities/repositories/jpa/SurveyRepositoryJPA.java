@@ -1,5 +1,7 @@
 package lt.vtvpmc.exam.entities.repositories.jpa;
 
+import java.util.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
@@ -86,5 +88,19 @@ public class SurveyRepositoryJPA implements SurveyRepository {
 			entityManager.close();
 		}
 	}
-	
+
+	public List<Survey> findLastSurveys() {
+		String jpql = "select e from Survey e order by e.company desc";
+		// "SELECT a FROM Author a JOIN a.tags t WHERE t.tag = :searchTag"
+
+		EntityManager entityManager = getEntityManager();
+		try {
+			TypedQuery<Survey> query = entityManager.createQuery(jpql, Survey.class);
+			// query.setParameter("searchTag", tag);
+			return query.getResultList();
+		} finally {
+			entityManager.close();
+		}
+	}
+
 }

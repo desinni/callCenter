@@ -91,7 +91,6 @@ public class ClientsListPageBean {
 			}
 		}
 		double average = sum / clientRepo.findAll().size();
-//		double roundAverage = (double)Math.round(double average * 100000d) / 100000d;
 		double roundAverage = (double)Math.round(average * 100) / 100;
 		return roundAverage;
 	}

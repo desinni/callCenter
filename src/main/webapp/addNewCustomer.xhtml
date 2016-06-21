@@ -8,7 +8,8 @@
 
 		<h:form id="newCustomerForm">
 			<div class="header">Add New Client</div>
-			<h:panelGrid columns="3">
+			
+			<h:panelGrid id="grid" columns="3">
 				<p:outputLabel for="clientName" value="Name:" />
 				<p:inputText id="clientName"
 					value="#{clientModel.selectedClient.firstName}" required="true" />
@@ -34,21 +35,21 @@
 				<p:outputLabel for="clientStartDay" value="Service start:" />
 				<p:calendar id="clientStartDay"
 					value="#{clientModel.selectedClient.startDay}" pattern="yyyy-MM-dd"
-					mask="true" required="false" />
+					mask="true" />
 				<p:message for="clientStartDay" />
 
 				<p:outputLabel for="clientCity" value="City: " />
 				<p:inputText id="clientCity"
-					value="#{clientModel.selectedClient.city}" required="false" />
+					value="#{clientModel.selectedClient.city}" />
 				<p:message for="clientCity" />
 
 				<p:outputLabel for="clientAddress" value="Address: " />
 				<p:inputText id="clientAddress"
-					value="#{clientModel.selectedClient.address}" required="false" />
+					value="#{clientModel.selectedClient.address}" />
 				<p:message for="clientAddress" />
 
 			</h:panelGrid>
-			<p:commandButton action="#{clientsListPage.saveNew}" value="Add" />
+			<p:commandButton action="#{clientsListPage.saveNew}" update="grid" value="Add" />
 		</h:form>
 	</ui:define>
 
