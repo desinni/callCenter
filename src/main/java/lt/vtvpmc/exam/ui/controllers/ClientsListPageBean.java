@@ -12,7 +12,7 @@ import lt.vtvpmc.exam.entities.Client;
 import lt.vtvpmc.exam.entities.Survey;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
 import lt.vtvpmc.exam.ui.model.ClientModel;
-import lt.vtvpmc.exam.ui.model.TripModel;
+import lt.vtvpmc.exam.ui.model.SurveyModel;
 
 public class ClientsListPageBean {
 
@@ -20,7 +20,7 @@ public class ClientsListPageBean {
 
 	private ClientModel clientModel;
 	private ClientRepository clientRepo;
-	private TripModel tripModel;
+	private SurveyModel surveyModel;
 
 	public ClientModel getClientModel() {
 		return clientModel;
@@ -42,12 +42,12 @@ public class ClientsListPageBean {
 		return clientRepo.findAll();
 	}
 
-	public TripModel getTripModel() {
-		return tripModel;
+	public SurveyModel getSurveyModel() {
+		return surveyModel;
 	}
 
-	public void setTripModel(TripModel tripModel) {
-		this.tripModel = tripModel;
+	public void setSurveyModel(SurveyModel surveyModel) {
+		this.surveyModel = surveyModel;
 	}
 
 	public String saveNew() {
@@ -56,7 +56,7 @@ public class ClientsListPageBean {
 		clientModel.setSelectedClient(new Client());
 		return "main";
 	}
-	
+
 	public String deleteSelected(Client client) {
 		if (client == null) {
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -66,20 +66,20 @@ public class ClientsListPageBean {
 		}
 		return "main";
 	}
-	
+
 	public String showMoreInfoPage(Client client) {
 		log.debug(">>>>> Will show currently selected client in showMoreInfoPage: {}", client);
 		clientModel.setSelectedClient(client);
 		return "viewCustomer";
 	}
-	
+
 	public String showNewCustomerPage() {
 		clientModel.setSelectedClient(new Client());
 		return "addNewCustomer";
 	}
-	
+
 	public String showNewTripPage() {
-		tripModel.setSelectedTrip(new Survey());
-		return "addNewTrip";
+		surveyModel.setSelectedSurvey(new Survey());
+		return "addNewSurvey";
 	}
 }

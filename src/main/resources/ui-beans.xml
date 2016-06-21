@@ -25,20 +25,20 @@
 	<bean id="clientsListPage" class="lt.vtvpmc.exam.ui.controllers.ClientsListPageBean" scope="session" >
 		<property name="clientRepo" ref="clientRepo" />
 		<property name="clientModel" ref="clientModel" />
-		<property name="tripModel" ref="tripModel" />
+		<property name="surveyModel" ref="surveyModel" />
 	</bean>
 	
 	<bean id="addNewTripPage" class="lt.vtvpmc.exam.ui.controllers.AddNewTripPageBean" scope="session" >
 		<property name="clientRepo" ref="clientRepo" />
 		<property name="clientModel" ref="clientModel" />
-		<property name="tripRepo" ref="tripRepo" />
-		<property name="tripModel" ref="tripModel" />
+		<property name="surveyRepo" ref="surveyRepo" />
+		<property name="surveyModel" ref="surveyModel" />
 	</bean>
 	
 	<bean id="clientModel" class="lt.vtvpmc.exam.ui.model.ClientModel" scope="session">
 <!-- 		<property name="selectedClient" ref="selectedClient" /> -->
 	</bean>
 	
-	<bean id="tripModel" class="lt.vtvpmc.exam.ui.model.TripModel" scope="session" />
+	<bean id="surveyModel" class="lt.vtvpmc.exam.ui.model.SurveyModel" scope="session" />
     
 </beans>

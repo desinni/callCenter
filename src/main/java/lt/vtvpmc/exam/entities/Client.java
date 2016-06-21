@@ -121,15 +121,13 @@ public class Client implements Serializable {
 		this.surveys = surveys;
 	}
 
-//	public void addSurvey(Survey survey) {
-//		if (getTrips() == null)
-//			setTrips(new ArrayList<Survey>());
-//		if (!getTrips().contains(trip))
-//			getTrips().add(trip);
-//	}
+	public void addSurvey(Survey survey) {
+		if (getSurveys() == null)
+			setSurveys(new ArrayList<Survey>());
+		if (!getSurveys().contains(survey))
+			getSurveys().add(survey);
+	}
 	
-
-
 	@Override
 	public String toString() {
 		return "Client: " + firstName + " " + lastName + ", birthday: " + birthday;

@@ -5,14 +5,14 @@ import lt.vtvpmc.exam.entities.Survey;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
 import lt.vtvpmc.exam.entities.repositories.SurveyRepository;
 import lt.vtvpmc.exam.ui.model.ClientModel;
-import lt.vtvpmc.exam.ui.model.TripModel;
+import lt.vtvpmc.exam.ui.model.SurveyModel;
 
 public class AddNewTripPageBean {
 
 	private ClientRepository clientRepo;
-	private SurveyRepository tripRepo;
+	private SurveyRepository surveyRepo;
 	private ClientModel clientModel;
-	private TripModel tripModel;
+	private SurveyModel surveyModel;
 	private ClientsListPageBean clientsListPageBean;
 
 	public ClientRepository getClientRepo() {
@@ -23,12 +23,20 @@ public class AddNewTripPageBean {
 		this.clientRepo = clientRepo;
 	}
 
-	public SurveyRepository getTripRepo() {
-		return tripRepo;
+	public SurveyRepository getSurveyRepo() {
+		return surveyRepo;
 	}
 
-	public void setTripRepo(SurveyRepository tripRepo) {
-		this.tripRepo = tripRepo;
+	public void setSurveyRepo(SurveyRepository surveyRepo) {
+		this.surveyRepo = surveyRepo;
+	}
+
+	public SurveyModel getSurveyModel() {
+		return surveyModel;
+	}
+
+	public void setSurveyModel(SurveyModel surveyModel) {
+		this.surveyModel = surveyModel;
 	}
 
 	public ClientModel getClientModel() {
@@ -37,14 +45,6 @@ public class AddNewTripPageBean {
 
 	public void setClientModel(ClientModel clientModel) {
 		this.clientModel = clientModel;
-	}
-
-	public TripModel getTripModel() {
-		return tripModel;
-	}
-
-	public void setTripModel(TripModel tripModel) {
-		this.tripModel = tripModel;
 	}
 
 	public ClientsListPageBean getClientsListPageBean() {
@@ -56,15 +56,10 @@ public class AddNewTripPageBean {
 	}
 
 	public String addNew() {
-		// Invoice invoice = invoicesListPageBean.getData().getCurrentInvoice();
 		Client client = clientModel.getSelectedClient();
-		// tripModel.setSelectedTrip(new Trip());
-		Survey newTrip = tripModel.getSelectedTrip();
-		// newItem.setInvoice(invoice);
-		newTrip.setClient(client);
-		// invoice.addItem(newItem);
-		client.addTrip(newTrip);
-		// invRepo.save(invoice);
+		Survey newSurvey = surveyModel.getSelectedSurvey();
+		newSurvey.setClient(client);
+		client.addSurvey(newSurvey);
 		clientRepo.save(client);
 
 		return "viewCustomer";
