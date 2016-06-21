@@ -158,7 +158,7 @@ public class ClientsListPageBean {
 		Axis yAxis = barModel.getAxis(AxisType.Y);
 		yAxis.setLabel("Number");
 		yAxis.setMin(0);
-		yAxis.setMax(50);
+//		yAxis.setMax(50);
 	}
 
 }
