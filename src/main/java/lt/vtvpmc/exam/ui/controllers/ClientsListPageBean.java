@@ -82,4 +82,17 @@ public class ClientsListPageBean {
 		surveyModel.setSelectedSurvey(new Survey());
 		return "addNewSurvey";
 	}
+
+	public double countAverageEvaluation() {
+		double sum = 0;
+		for (Client client : clientRepo.findAll()) {
+			if (client.getSurveys() != null && !client.getSurveys().isEmpty()) {
+				sum += client.getSurveys().get(client.getSurveys().size() - 1).getEvaluation();
+			}
+		}
+		double average = sum / clientRepo.findAll().size();
+//		double roundAverage = (double)Math.round(double average * 100000d) / 100000d;
+		double roundAverage = (double)Math.round(average * 100) / 100;
+		return roundAverage;
+	}
 }

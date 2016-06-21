@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="content">
+		<h:form id="evaluationForm">
+			<div class="header">All clients' average evaluation</div>
+			<h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Average evaluation: " class="info-header" />
+                <h:outputText value="#{clientsListPage.countAverageEvaluation()}" class="info" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="title">
+ 		Evaluations
+ 	</ui:define>
+
+</ui:composition>

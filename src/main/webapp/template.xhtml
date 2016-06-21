@@ -14,11 +14,13 @@
 <h:body>
 	<div id="container">
 		<h:form>
-			<p:tabMenu>
+			<p:tabMenu activeIndex="#{param.i}">
 				<p:menuitem value="Customers" outcome="list-customers">
+					<f:param name="i" value="0" />
 				</p:menuitem>
-				<!-- <p:menuitem value="Tag search" outcome="search-tags" icon="ui-icon-star">
-					</p:menuitem>	-->
+				<p:menuitem value="Evaluations" outcome="average-evaluations">
+					<f:param name="i" value="1" />
+				</p:menuitem>
 			</p:tabMenu>
 		</h:form>
 		<div id="contents">

@@ -5,6 +5,19 @@ body {
     background: #ebf4f0;
 }
 
+.header {
+	font-size: 30px;
+	margin: 20px 0;
+}
+
 .user-icon {
 	width: 10%;
+}
+
+.info {
+	font-weight: bold;
+}
+
+.info-header {
+	font-size: 17px;
 }

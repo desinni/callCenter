@@ -9,27 +9,28 @@
 			<p:graphicImage class="user-icon" library="images" name="icon-user.png" />
 			
 	            <p:outputPanel>
+	            	<div class="header">Client's information</div>
 	                <h:panelGrid columns="4" cellpadding="5">
 	                    <h:outputText value="Name:" />
-	                    <h:outputText value="#{clientModel.selectedClient.firstName}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.firstName}" class="info" />
 	 
 	                    <h:outputText value="Surname:" />
-	                    <h:outputText value="#{clientModel.selectedClient.lastName}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.lastName}" class="info" />
 	                    
 	                    <h:outputText value="Birthday:" />
-	                    <h:outputText value="#{clientModel.selectedClient.birthday}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.birthday}" class="info" />
 	 
 	                    <h:outputText value="Phone:" />
-	                    <h:outputText value="#{clientModel.selectedClient.phoneNumber}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.phoneNumber}" class="info" />
 	                    
 	                    <h:outputText value="Service start: " />
-	                    <h:outputText value="#{clientModel.selectedClient.startDay}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.startDay}" class="info" />
 	                    
 	                    <h:outputText value="City:" />
-	                    <h:outputText value="#{clientModel.selectedClient.city}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.city}" class="info" />
 	                    
 	                    <h:outputText value="Address:" />
-	                    <h:outputText value="#{clientModel.selectedClient.address}" style="font-weight: bold"/>
+	                    <h:outputText value="#{clientModel.selectedClient.address}" class="info" />
 	                </h:panelGrid>
 	            </p:outputPanel>
 		</h:form>

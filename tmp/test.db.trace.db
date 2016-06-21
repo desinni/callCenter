@@ -1,0 +1,3 @@
+06-21 12:00:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DATEFORMAT BINARY(255)": "X'aced00057372001a6a6176612e746578742e53696d706c6544617465466f726d61744243c9da9394359002000549001573657269616c56657273696f6e4f6e... (45469)"; SQL statement:
+insert into Survey (cal, client_id, date, dateFormat, evaluation, recommendation, id) values (?, ?, ?, ?, ?, ?, ?) [22001-182]

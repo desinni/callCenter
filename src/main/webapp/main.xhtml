@@ -6,6 +6,7 @@
 
 	<ui:define name="content">
 		<h:form id="tableActionForm">
+			<div class="header">Call center clients</div>
 			<p:dataTable value="#{clientsListPage.clientList}" var="client">
 				<p:column headerText="First Name">
 					<h:outputText value="#{client.firstName}" />

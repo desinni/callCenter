@@ -35,11 +35,21 @@
 			<to-view-id>/main.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>average-evaluations</from-outcome>
+			<to-view-id>/evaluationPage.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>list-customers</from-outcome>
 			<to-view-id>main.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>average-evaluations</from-outcome>
+			<to-view-id>evaluationPage.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
@@ -49,6 +59,11 @@
 			<from-outcome>list-customers</from-outcome>
 			<to-view-id>/main.xhtml</to-view-id>
 			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>average-evaluations</from-outcome>
+			<to-view-id>/evaluationPage.xhtml</to-view-id>
+			<redirect/>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>
