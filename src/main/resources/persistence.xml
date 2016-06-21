@@ -2,7 +2,7 @@
 <persistence>
    <persistence-unit name="persistence-unit">
        <class>lt.vtvpmc.exam.entities.Client</class>
-       <class>lt.vtvpmc.exam.entities.Trip</class>
+       <class>lt.vtvpmc.exam.entities.Survey</class>
        <properties>
            <property name="hibernate.hbm2ddl.auto" value="update"/>
        </properties>

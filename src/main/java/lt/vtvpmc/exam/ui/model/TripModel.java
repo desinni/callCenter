@@ -1,16 +1,16 @@
 package lt.vtvpmc.exam.ui.model;
 
-import lt.vtvpmc.exam.entities.Trip;
+import lt.vtvpmc.exam.entities.Survey;
 
 public class TripModel {
 
-	private Trip selectedTrip = new Trip();
+	private Survey selectedTrip = new Survey();
 
-	public Trip getSelectedTrip() {
+	public Survey getSelectedTrip() {
 		return selectedTrip;
 	}
 
-	public void setSelectedTrip(Trip selectedTrip) {
+	public void setSelectedTrip(Survey selectedTrip) {
 		this.selectedTrip = selectedTrip;
 	}
 

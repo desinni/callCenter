@@ -6,10 +6,10 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import lt.vtvpmc.exam.entities.Trip;
-import lt.vtvpmc.exam.entities.repositories.TripRepository;
+import lt.vtvpmc.exam.entities.Survey;
+import lt.vtvpmc.exam.entities.repositories.SurveyRepository;
 
-public class TripRepositoryJPA implements TripRepository {
+public class SurveyRepositoryJPA implements SurveyRepository {
 
 	private EntityManagerFactory entityManagerFactory;
 
@@ -22,22 +22,22 @@ public class TripRepositoryJPA implements TripRepository {
 	}
 
 	@Override
-	public void insertOrUpdate(Trip trip) {
+	public void insertOrUpdate(Survey survey) {
 		EntityManager entityManager = getEntityManager();
 		try {
 			entityManager.getTransaction().begin();
 			boolean merged = false;
-			for (Trip trp : trip.getClient().getTrips()) {
-				if (!entityManager.contains(trp) && trp.getId() != null) {
-					entityManager.merge(trp);
+			for (Survey srv : survey.getClient().getSurveys()) {
+				if (!entityManager.contains(srv) && srv.getId() != null) {
+					entityManager.merge(srv);
 					merged = true;
 				} else
-					entityManager.persist(trp);
+					entityManager.persist(srv);
 			}
 			if (merged) {
-				entityManager.merge(trip);
+				entityManager.merge(survey);
 			} else {
-				entityManager.persist(trip);
+				entityManager.persist(survey);
 			}
 			entityManager.getTransaction().commit();
 		} finally {
@@ -47,11 +47,11 @@ public class TripRepositoryJPA implements TripRepository {
 	}
 
 	@Override
-	public void delete(Trip trip) {
+	public void delete(Survey survey) {
 		EntityManager entityManager = getEntityManager();
 		try {
 			entityManager.getTransaction().begin();
-			entityManager.createQuery("DELETE FROM Trip e WHERE e.id = :id").setParameter("id", trip.getId())
+			entityManager.createQuery("DELETE FROM Survey e WHERE e.id = :id").setParameter("id", survey.getId())
 					.executeUpdate();
 			entityManager.getTransaction().commit();
 		} finally {
@@ -60,13 +60,13 @@ public class TripRepositoryJPA implements TripRepository {
 	}
 
 	@Override
-	public void deleteById(Long tripId) {
+	public void deleteById(Long surveyId) {
 		EntityManager entityManager = getEntityManager();
 		try {
 			entityManager.getTransaction().begin();
-			Trip trip = entityManager.find(Trip.class, tripId);
-			if (trip != null)
-				entityManager.remove(trip);
+			Survey survey = entityManager.find(Survey.class, surveyId);
+			if (survey != null)
+				entityManager.remove(survey);
 			entityManager.getTransaction().commit();
 		} finally {
 			entityManager.close();
@@ -74,12 +74,12 @@ public class TripRepositoryJPA implements TripRepository {
 	}
 
 	@Override
-	public Long countAllTrips() {
+	public Long countAllSurveys() {
 		EntityManager entityManager = getEntityManager();
 		try {
 			CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 			CriteriaQuery<Long> countQuery = cb.createQuery(Long.class);
-			countQuery.select(cb.count(countQuery.from(Trip.class)));
+			countQuery.select(cb.count(countQuery.from(Survey.class)));
 			TypedQuery<Long> q = entityManager.createQuery(countQuery);
 			return q.getSingleResult();
 		} finally {

@@ -1,16 +1,16 @@
 package lt.vtvpmc.exam.ui.controllers;
 
 import lt.vtvpmc.exam.entities.Client;
-import lt.vtvpmc.exam.entities.Trip;
+import lt.vtvpmc.exam.entities.Survey;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
-import lt.vtvpmc.exam.entities.repositories.TripRepository;
+import lt.vtvpmc.exam.entities.repositories.SurveyRepository;
 import lt.vtvpmc.exam.ui.model.ClientModel;
 import lt.vtvpmc.exam.ui.model.TripModel;
 
 public class AddNewTripPageBean {
 
 	private ClientRepository clientRepo;
-	private TripRepository tripRepo;
+	private SurveyRepository tripRepo;
 	private ClientModel clientModel;
 	private TripModel tripModel;
 	private ClientsListPageBean clientsListPageBean;
@@ -23,11 +23,11 @@ public class AddNewTripPageBean {
 		this.clientRepo = clientRepo;
 	}
 
-	public TripRepository getTripRepo() {
+	public SurveyRepository getTripRepo() {
 		return tripRepo;
 	}
 
-	public void setTripRepo(TripRepository tripRepo) {
+	public void setTripRepo(SurveyRepository tripRepo) {
 		this.tripRepo = tripRepo;
 	}
 
@@ -59,7 +59,7 @@ public class AddNewTripPageBean {
 		// Invoice invoice = invoicesListPageBean.getData().getCurrentInvoice();
 		Client client = clientModel.getSelectedClient();
 		// tripModel.setSelectedTrip(new Trip());
-		Trip newTrip = tripModel.getSelectedTrip();
+		Survey newTrip = tripModel.getSelectedTrip();
 		// newItem.setInvoice(invoice);
 		newTrip.setClient(client);
 		// invoice.addItem(newItem);

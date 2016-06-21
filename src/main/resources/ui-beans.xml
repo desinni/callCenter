@@ -18,7 +18,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 	
-	 <bean id="tripRepo" class="lt.vtvpmc.exam.entities.repositories.jpa.TripRepositoryJPA" scope="singleton">
+	 <bean id="surveyRepo" class="lt.vtvpmc.exam.entities.repositories.jpa.SurveyRepositoryJPA" scope="singleton">
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 	

@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import lt.vtvpmc.exam.entities.Client;
-import lt.vtvpmc.exam.entities.Trip;
+import lt.vtvpmc.exam.entities.Survey;
 import lt.vtvpmc.exam.entities.repositories.ClientRepository;
 import lt.vtvpmc.exam.ui.model.ClientModel;
 import lt.vtvpmc.exam.ui.model.TripModel;
@@ -79,7 +79,7 @@ public class ClientsListPageBean {
 	}
 	
 	public String showNewTripPage() {
-		tripModel.setSelectedTrip(new Trip());
+		tripModel.setSelectedTrip(new Survey());
 		return "addNewTrip";
 	}
 }

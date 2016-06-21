@@ -1,8 +1,7 @@
 package lt.vtvpmc.exam.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Client implements Serializable {
@@ -22,18 +23,30 @@ public class Client implements Serializable {
 
 	private String firstName;
 	private String lastName;
+	@Temporal(TemporalType.DATE)
+	private Date birthday;
 	private String phoneNumber;
+	@Temporal(TemporalType.DATE)
+	private Date startDay;
+	private String city;
+	private String address;
 
 	@OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = { CascadeType.ALL }, orphanRemoval = true)
-	private List<Trip> trips;
+	private List<Survey> surveys;
 
 	public Client() {
 	}
 
-	public Client(String firstName, String lastName, String phoneNumber) {
+	public Client(String firstName, String lastName, Date birthday, String phoneNumber, Date startDay, String city,
+			String address) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.birthday = birthday;
 		this.phoneNumber = phoneNumber;
+		this.startDay = startDay;
+		this.city = city;
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -60,6 +73,14 @@ public class Client implements Serializable {
 		this.lastName = lastName;
 	}
 
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -68,30 +89,65 @@ public class Client implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public List<Trip> getTrips() {
-		return trips;
+	public Date getStartDay() {
+		return startDay;
 	}
 
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
+	public void setStartDay(Date startDay) {
+		this.startDay = startDay;
 	}
 
-	public void addTrip(Trip trip) {
-		if (getTrips() == null)
-			setTrips(new ArrayList<Trip>());
-		if (!getTrips().contains(trip))
-			getTrips().add(trip);
+	public String getCity() {
+		return city;
 	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public List<Survey> getSurveys() {
+		return surveys;
+	}
+
+	public void setSurveys(List<Survey> surveys) {
+		this.surveys = surveys;
+	}
+
+//	public void addSurvey(Survey survey) {
+//		if (getTrips() == null)
+//			setTrips(new ArrayList<Survey>());
+//		if (!getTrips().contains(trip))
+//			getTrips().add(trip);
+//	}
 	
+
+
+	@Override
+	public String toString() {
+		return "Client: " + firstName + " " + lastName + ", birthday: " + birthday;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
-		result = prime * result + ((trips == null) ? 0 : trips.hashCode());
+		result = prime * result + ((startDay == null) ? 0 : startDay.hashCode());
+		result = prime * result + ((surveys == null) ? 0 : surveys.hashCode());
 		return result;
 	}
 
@@ -104,6 +160,21 @@ public class Client implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (birthday == null) {
+			if (other.birthday != null)
+				return false;
+		} else if (!birthday.equals(other.birthday))
+			return false;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;
@@ -124,16 +195,16 @@ public class Client implements Serializable {
 				return false;
 		} else if (!phoneNumber.equals(other.phoneNumber))
 			return false;
-		if (trips == null) {
-			if (other.trips != null)
+		if (startDay == null) {
+			if (other.startDay != null)
 				return false;
-		} else if (!trips.equals(other.trips))
+		} else if (!startDay.equals(other.startDay))
+			return false;
+		if (surveys == null) {
+			if (other.surveys != null)
+				return false;
+		} else if (!surveys.equals(other.surveys))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Client: " + firstName + " " + lastName;
 	}
 }
